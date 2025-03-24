@@ -73,7 +73,41 @@ class ReviewDetailScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/movie-detail', arguments: movieTitle),
+                onPressed: () {
+  Map<String, String> movieDetail;
+
+  if (movieTitle == "Harry Potter") {
+    movieDetail = {
+      "title": movieTitle,
+      "image": "assets/images/harry.jpg",
+      "description": "แฮร์รี่ พอตเตอร์อาศัยอยู่กับลุงและป้า จนวันหนึ่ง..."
+    };
+  } else if (movieTitle == "Avengers Endgame") {
+    movieDetail = {
+      "title": movieTitle,
+      "image": "assets/images/endgame.jpg",
+      "description": "Avengers Endgame เป็นเรื่องราวบทสรุป..."
+    };
+  } else if (movieTitle == "Friend Zone") {
+    movieDetail = {
+      "title": movieTitle,
+      "image": "assets/images/friendzone.jpg",
+      "description": "Friend Zone เล่าถึงความสัมพันธ์ที่ไม่ชัดเจน..."
+    };
+  } else {
+    movieDetail = {
+      "title": movieTitle,
+      "image": "assets/images/logo.png",
+      "description": "ไม่มีข้อมูลของภาพยนตร์นี้"
+    };
+  }
+
+  Navigator.pushNamed(
+    context,
+    '/movie-detail',
+    arguments: movieDetail,
+  );
+},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.amber,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
